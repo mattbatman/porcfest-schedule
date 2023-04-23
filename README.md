@@ -1,19 +1,16 @@
-# PorcFest Schedule
+# PorcFest Schedule 2023
 
-This uses the Google Sheets API and Gatsby. It was created with Node `v16.13.0`.
+This is a static site of the PorcFest 2023 schedule.
 
-The Google Sheets is the publicly available [PorcFest schedule](https://docs.google.com/spreadsheets/d/1Xgr9ucp1JSXAG0TozNSWtIqhSTUrmjhDwygCKz4k_Qs).
+It was built with Node `v16.17.0`.
 
 ## Getting started
 
-See the prerequisites for a [Google Sheets API](https://developers.google.com/sheets/api/quickstart/nodejs) project, notably: create a Google Cloud Platform project for yourself, create the credentials, and download them to this project at `sheets/credentials.json`.
+First, download the PorcFest 2023 ical file [here](https://porcfest.com/schedule/) to `./scripts/PorcfestOfflineSchedule.ics`.
 
 ```
 # Install the project dependencies
 npm install
-
-# Get data from the Google Sheet
-npm run fetch-schedule
 
 # Start Gatsby in development mode
 npm run develop
