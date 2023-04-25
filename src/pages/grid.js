@@ -1,6 +1,6 @@
 import React from 'react';
 import { findIndex, uniq } from 'ramda';
-import { Link } from 'gatsby';
+import Link from 'next/link';
 import scheduleData from '../data/schedule.json';
 import GridRow from '../components/GridRow';
 
@@ -41,7 +41,7 @@ const GridPage = () => {
         <a href="https://porcfest.com/schedule/">PorcFest schedule</a>.
       </p>
       <p>
-        <Link to="/">List View</Link>
+        <Link href="/">List View</Link>
       </p>
       <table>
         <thead>

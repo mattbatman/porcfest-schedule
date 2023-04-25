@@ -1,47 +1,24 @@
 import React from 'react';
 import { findIndex } from 'ramda';
-import { Link } from 'gatsby';
-import scheduleData from '../data/schedule.json';
+import Link from 'next/link';
+import scheduleData from '../data/schedule-2023.json';
 import ListRow from '../components/ListRow';
 
-const data = scheduleData.reduce((acc, cv) => {
-  const Date = cv['Readable date'];
-  const eventIndex = findIndex(
-    (existingGroup) => existingGroup.date === Date,
-    acc
-  );
-
-  if (eventIndex < 0) {
-    const events = [];
-    events.push(cv);
-
-    acc.push({
-      date: Date,
-      events
-    });
-
-    return acc;
-  }
-
-  acc[eventIndex].events.push(cv);
-
-  return acc;
-}, []);
-
 const IndexPage = () => {
+  console.log('schedule data ----');
+  console.log(scheduleData);
   return (
     <main className="list-page">
-      <title>PorcFest Schedule 2022</title>
-      <h1>PorcFest Schedule 2022</h1>
+      <title>PorcFest Schedule 2023</title>
+      <h1>PorcFest Schedule 2023</h1>
       <p>
         This is an attempt to replicate the events from the main{' '}
-        <a href="https://porcfest.com/schedule/">PorcFest schedule</a>. The
-        event list below was last updated on June 16, 2022, at 7:15 PM EST. To
-        update these events, I run a script that pulls them from PorcFest's
-        Google Sheet and generates this site. It does not sync in real time.
+        <a href="https://porcfest.com/schedule/">PorcFest schedule</a> by
+        downloading the `.ics` and rebuilding as a static website. It does not
+        sync in real time.
       </p>
       <p>
-        <Link to="/grid">Grid View</Link>
+        <Link href="/grid">Grid View</Link>
       </p>
       <table>
         <thead>
@@ -53,9 +30,9 @@ const IndexPage = () => {
           </tr>
         </thead>
         <tbody>
-          {data.map((d) => (
+          {/* {scheduleData.map((d) => (
             <ListRow key={d.date} date={d.date} events={d.events} />
-          ))}
+          ))} */}
         </tbody>
       </table>
     </main>
