@@ -8,6 +8,13 @@ function formatSlotFromString(datetime) {
   });
 }
 
+function getDuration({ start, end }) {
+  const endTime = new Date(end).getTime();
+  const startTime = new Date(start).getTime();
+  const diff = endTime - startTime;
+  return diff / 1000 / 60;
+}
+
 const ListRow = ({ date, events }) => {
   return (
     <>
@@ -31,7 +38,12 @@ const ListRow = ({ date, events }) => {
               <div dangerouslySetInnerHTML={{ __html: summary }} />
             </td>
             <td>{location}</td>
-            <td>end-start</td>
+            <td>
+              {getDuration({
+                start: startDatetime,
+                end: endDatetime
+              })}
+            </td>
           </tr>
         );
       })}
