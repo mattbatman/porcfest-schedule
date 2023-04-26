@@ -15,7 +15,9 @@ const ListRow = ({ date, events }) => {
         return (
           <tr key={i}>
             {i === 0 ? <td rowSpan={events.length}>{startDatetime}</td> : null}
-            <td>{summary}</td>
+            <td>
+              <div dangerouslySetInnerHTML={{ __html: summary }} />
+            </td>
             <td>{location}</td>
             <td>end-start</td>
           </tr>
