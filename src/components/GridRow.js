@@ -1,18 +1,22 @@
 import React from 'react';
 import { find } from 'ramda';
+import { formatSlotFromString } from '../utility/format-slot';
 
 const GridRow = ({ data, allLocations }) => {
   const { date, events } = data;
+
   return (
     <tr>
-      <td>{date}</td>
+      <td>{formatSlotFromString(date)}</td>
       {allLocations.map((d, i) => {
-        const event = find((e) => e.Location === d)(events);
-        const title = event && event.Title ? event.Title : '';
-        const link = event && event.Link ? event.Link : null;
+        const event = find((e) => e.location === d)(events);
 
         return (
-          <td key={i}>{link === null ? title : <a href={link}>{title}</a>}</td>
+          <td key={i}>
+            {event && event.summary ? (
+              <div dangerouslySetInnerHTML={{ __html: event.summary }} />
+            ) : null}
+          </td>
         );
       })}
     </tr>

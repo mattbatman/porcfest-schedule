@@ -1,19 +1,42 @@
 import React from 'react';
+import { formatSlotFromString } from '../utility/format-slot';
+
+function getDuration({ start, end }) {
+  const endTime = new Date(end).getTime();
+  const startTime = new Date(start).getTime();
+  const diff = endTime - startTime;
+  return diff / 1000 / 60;
+}
 
 const ListRow = ({ date, events }) => {
   return (
     <>
       {events.map((event, i) => {
-        const { Title, Link, Location } = event;
-        const Date = event['Readable date']
+        const {
+          description,
+          endDatetime,
+          startDatetime,
+          summary,
+          timestamp,
+          location
+        } = event;
         return (
           <tr key={i}>
-            {i === 0 ? <td rowSpan={events.length}>{Date}</td> : null}
+            {i === 0 ? (
+              <td rowSpan={events.length}>
+                {formatSlotFromString(startDatetime)}
+              </td>
+            ) : null}
             <td>
-              <a href={Link}>{Title}</a>
+              <div dangerouslySetInnerHTML={{ __html: summary }} />
             </td>
-            <td>{Location}</td>
-            <td>{event['Duration (Minutes)']}</td>
+            <td>{location}</td>
+            <td>
+              {getDuration({
+                start: startDatetime,
+                end: endDatetime
+              })}
+            </td>
           </tr>
         );
       })}

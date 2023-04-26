@@ -1,5 +1,4 @@
 node_modules/
-.cache/
-public
-sheets/credentials.json
-sheets/token.json
+scripts/PorcfestOfflineSchedule.ics
+.next
+src/data/schedule-2023.json

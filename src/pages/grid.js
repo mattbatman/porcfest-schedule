@@ -1,47 +1,26 @@
 import React from 'react';
 import { findIndex, uniq } from 'ramda';
-import { Link } from 'gatsby';
-import scheduleData from '../data/schedule.json';
+import Link from 'next/link';
 import GridRow from '../components/GridRow';
+import { groupByTime } from '../utility/group-by-time';
+import scheduleData from '../data/schedule-2023.json';
 
-const data = scheduleData.reduce((acc, cv) => {
-  const Date = cv['Readable date'];
-  const eventIndex = findIndex(
-    (existingGroup) => existingGroup.date === Date,
-    acc
-  );
+const data = groupByTime(scheduleData);
 
-  if (eventIndex < 0) {
-    const events = [];
-    events.push(cv);
-
-    acc.push({
-      date: Date,
-      events
-    });
-
-    return acc;
-  }
-
-  acc[eventIndex].events.push(cv);
-
-  return acc;
-}, []);
-
-const locations = scheduleData.map((d) => d.Location);
+const locations = scheduleData.map(({ location }) => location);
 const allUniqueLocations = uniq(locations);
 
 const GridPage = () => {
   return (
     <main className="grid-page">
-      <title>PorcFest Schedule 2022 | Grid</title>
-      <h1>PorcFest Schedule 2022</h1>
+      <title>PorcFest Schedule 2023 | Grid</title>
+      <h1>PorcFest Schedule 2023</h1>
       <p>
         This is an attempt to replicate the events from the main{' '}
         <a href="https://porcfest.com/schedule/">PorcFest schedule</a>.
       </p>
       <p>
-        <Link to="/">List View</Link>
+        <Link href="/">List View</Link>
       </p>
       <table>
         <thead>
