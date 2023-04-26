@@ -1,12 +1,12 @@
 import React from 'react';
-import { findIndex } from 'ramda';
 import Link from 'next/link';
 import scheduleData from '../data/schedule-2023.json';
 import ListRow from '../components/ListRow';
+import { groupByEvent } from '../utility/group-by-event';
+
+const data = groupByEvent(scheduleData);
 
 const IndexPage = () => {
-  console.log('schedule data ----');
-  console.log(scheduleData);
   return (
     <main className="list-page">
       <title>PorcFest Schedule 2023</title>
@@ -30,9 +30,9 @@ const IndexPage = () => {
           </tr>
         </thead>
         <tbody>
-          {/* {scheduleData.map((d) => (
+          {data.map((d) => (
             <ListRow key={d.date} date={d.date} events={d.events} />
-          ))} */}
+          ))}
         </tbody>
       </table>
     </main>

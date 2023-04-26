@@ -28,7 +28,7 @@ function generateData() {
         description: descriptionList[3],
         location: locationList[3],
         startDatetime: startDatetimeList[3],
-        endDatetimeList: endDatetimeList[3],
+        endDatetime: endDatetimeList[3],
         timestamp: timestampList[3]
       };
     });
