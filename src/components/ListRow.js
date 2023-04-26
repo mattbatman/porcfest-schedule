@@ -1,12 +1,5 @@
 import React from 'react';
-
-function formatSlotFromString(datetime) {
-  return new Date(datetime).toLocaleDateString('en-US', {
-    weekday: 'short',
-    hour: 'numeric',
-    minute: 'numeric'
-  });
-}
+import { formatSlotFromString } from '../utility/format-slot';
 
 function getDuration({ start, end }) {
   const endTime = new Date(end).getTime();

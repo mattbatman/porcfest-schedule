@@ -1,6 +1,6 @@
 import { findIndex, sortBy, prop } from 'ramda';
 
-function groupByEvent(fullData) {
+function groupByTime(fullData) {
   const grouped = fullData.reduce((acc, cv) => {
     const date = new Date(cv.startDatetime);
 
@@ -30,4 +30,4 @@ function groupByEvent(fullData) {
   return sortByDate(grouped);
 }
 
-export { groupByEvent };
+export { groupByTime };

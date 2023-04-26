@@ -2,9 +2,9 @@ import React from 'react';
 import Link from 'next/link';
 import scheduleData from '../data/schedule-2023.json';
 import ListRow from '../components/ListRow';
-import { groupByEvent } from '../utility/group-by-event';
+import { groupByTime } from '../utility/group-by-time';
 
-const data = groupByEvent(scheduleData);
+const data = groupByTime(scheduleData);
 
 const IndexPage = () => {
   return (
