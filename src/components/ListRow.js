@@ -1,5 +1,13 @@
 import React from 'react';
 
+function formatSlotFromString(datetime) {
+  return new Date(datetime).toLocaleDateString('en-US', {
+    weekday: 'short',
+    hour: 'numeric',
+    minute: 'numeric'
+  });
+}
+
 const ListRow = ({ date, events }) => {
   return (
     <>
@@ -14,7 +22,11 @@ const ListRow = ({ date, events }) => {
         } = event;
         return (
           <tr key={i}>
-            {i === 0 ? <td rowSpan={events.length}>{startDatetime}</td> : null}
+            {i === 0 ? (
+              <td rowSpan={events.length}>
+                {formatSlotFromString(startDatetime)}
+              </td>
+            ) : null}
             <td>
               <div dangerouslySetInnerHTML={{ __html: summary }} />
             </td>
