@@ -1,5 +1,4 @@
 node_modules/
 scripts/PorcfestOfflineSchedule.ics
 .next
-src/data/schedule-2023.json
 out
