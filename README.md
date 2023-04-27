@@ -18,11 +18,3 @@ npm install
 # Start Next.js in development mode
 npm run develop
 ```
-
-## Deploy
-
-The first time you deploy, uncomment `# git init`. Comment out again for subsequent deploys.
-
-```
-sh deploy.sh
-```
