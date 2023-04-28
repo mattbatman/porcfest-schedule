@@ -9,8 +9,6 @@ function Modal({ onModalClose, isOpen, modalEvent }) {
     e.stopPropagation();
   }
 
-  console.log(modalEvent.description);
-
   return (
     <div className="Modal parent-of-center" onClick={onModalClose}>
       <div
