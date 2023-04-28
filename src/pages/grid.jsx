@@ -51,7 +51,6 @@ const GridPage = () => {
               key={d.date}
               allLocations={allUniqueLocations}
               onTitleClick={handleTitleClick}
-              onModalClose={handleModalClose}
             />
           ))}
         </tbody>

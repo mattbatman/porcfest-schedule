@@ -49,7 +49,6 @@ const IndexPage = () => {
               date={d.date}
               events={d.events}
               onTitleClick={handleTitleClick}
-              onModalClose={handleModalClose}
             />
           ))}
         </tbody>
