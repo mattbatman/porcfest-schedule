@@ -14,7 +14,7 @@ const GridRow = ({ data, allLocations, onTitleClick }) => {
         return (
           <td key={i}>
             {event && event.summary ? (
-              <divdangerouslySetInnerHTML
+              <div
                 className="cursor-pointer"
                 onClick={() => onTitleClick(event)}
                 dangerouslySetInnerHTML={{ __html: event.summary }}
