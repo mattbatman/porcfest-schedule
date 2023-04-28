@@ -75,6 +75,8 @@ a {
 .Modal-event-description {
   background-color: #ffffff;
   padding: 2rem;
-  max-width: 80vw;
-  max-height: 90vh;
+  width: 600px;
+  max-width: 75vw;
+  max-height: 80vh;
+  overflow-y: scroll;
 }
