@@ -1,53 +1,80 @@
 body {
-	color: #31353C;
-	font-family: sans-serif;
+  color: #31353c;
+  font-family: sans-serif;
 }
 
 table {
-	border-collapse: collapse;
-	font-size: calc(15 / 16 * 1rem);
+  border-collapse: collapse;
+  font-size: calc(15 / 16 * 1rem);
 }
 
 td,
 th {
-	border: 1px solid #ccc;
-	padding: 0.25rem;
-	text-align: left;
+  border: 1px solid #ccc;
+  padding: 0.25rem;
+  text-align: left;
 }
 
 .list-page th,
 .list-page td {
-	padding: 0.5rem;
+  padding: 0.5rem;
 }
 
 /* Zebra striping */
 td {
-	background-color: white;
+  background-color: white;
 }
 
 .grid-page tr:nth-of-type(odd) td {
-	background: #e9eaeb;
+  background: #e9eaeb;
 }
 
 th {
-	position: sticky;
-	top: 0;
-	background: #31353C;
-	color: white;
+  position: sticky;
+  top: 0;
+  background: #31353c;
+  color: white;
 }
 
 .grid-page th:first-child,
 .grid-page td:first-child {
-	position: sticky;
-	left: 0;
+  position: sticky;
+  left: 0;
 }
 
 .grid-page th:first-child,
 .list-page th {
-	z-index: 1;
+  z-index: 1;
 }
 
 a {
-	color: #109dd0;
-	text-decoration: none;
+  color: #109dd0;
+  text-decoration: none;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.Modal {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(49, 53, 60, 0.6);
+  z-index: 2;
+}
+
+.parent-of-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Modal-event-description {
+  background-color: #ffffff;
+  padding: 2rem;
+  max-width: 80vw;
+  max-height: 90vh;
 }

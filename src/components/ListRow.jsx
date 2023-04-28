@@ -8,7 +8,7 @@ function getDuration({ start, end }) {
   return diff / 1000 / 60;
 }
 
-const ListRow = ({ date, events }) => {
+const ListRow = ({ date, events, onTitleClick }) => {
   return (
     <>
       {events.map((event, i) => {
@@ -28,7 +28,11 @@ const ListRow = ({ date, events }) => {
               </td>
             ) : null}
             <td>
-              <div dangerouslySetInnerHTML={{ __html: summary }} />
+              <div
+                className="cursor-pointer"
+                dangerouslySetInnerHTML={{ __html: summary }}
+                onClick={() => onTitleClick(event)}
+              />
             </td>
             <td>{location}</td>
             <td>

@@ -2,7 +2,7 @@ import React from 'react';
 import { find } from 'ramda';
 import { formatSlotFromString } from '../utility/format-slot';
 
-const GridRow = ({ data, allLocations }) => {
+const GridRow = ({ data, allLocations, onTitleClick }) => {
   const { date, events } = data;
 
   return (
@@ -14,7 +14,11 @@ const GridRow = ({ data, allLocations }) => {
         return (
           <td key={i}>
             {event && event.summary ? (
-              <div dangerouslySetInnerHTML={{ __html: event.summary }} />
+              <divdangerouslySetInnerHTML
+                className="cursor-pointer"
+                onClick={() => onTitleClick(event)}
+                dangerouslySetInnerHTML={{ __html: event.summary }}
+              />
             ) : null}
           </td>
         );
