@@ -1,12 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import scheduleData from '../data/schedule-2023.json';
 import ListRow from '../components/ListRow';
+import Modal from '../components/Modal';
 import { groupByTime } from '../utility/group-by-time';
 
 const data = groupByTime(scheduleData);
 
 const IndexPage = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalEvent, setModalEvent] = useState(null);
+
+  function handleTitleClick(event) {
+    setModalEvent(event);
+    setIsModalOpen(true);
+  }
+
+  function handleModalClose() {
+    setIsModalOpen(false);
+  }
+
   return (
     <main className="list-page">
       <title>PorcFest Schedule 2023</title>
@@ -31,10 +44,21 @@ const IndexPage = () => {
         </thead>
         <tbody>
           {data.map((d) => (
-            <ListRow key={d.date} date={d.date} events={d.events} />
+            <ListRow
+              key={d.date}
+              date={d.date}
+              events={d.events}
+              onTitleClick={handleTitleClick}
+              onModalClose={handleModalClose}
+            />
           ))}
         </tbody>
       </table>
+      <Modal
+        isOpen={isModalOpen}
+        onModalClose={handleModalClose}
+        modalEvent={modalEvent}
+      />
     </main>
   );
 };

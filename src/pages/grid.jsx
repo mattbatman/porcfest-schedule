@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { findIndex, uniq } from 'ramda';
 import Link from 'next/link';
 import GridRow from '../components/GridRow';
+import Modal from '../components/Modal';
 import { groupByTime } from '../utility/group-by-time';
 import scheduleData from '../data/schedule-2023.json';
 
@@ -11,6 +12,18 @@ const locations = scheduleData.map(({ location }) => location);
 const allUniqueLocations = uniq(locations);
 
 const GridPage = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalEvent, setModalEvent] = useState(null);
+
+  function handleTitleClick(event) {
+    setModalEvent(event);
+    setIsModalOpen(true);
+  }
+
+  function handleModalClose() {
+    setIsModalOpen(false);
+  }
+
   return (
     <main className="grid-page">
       <title>PorcFest Schedule 2023 | Grid</title>
@@ -33,10 +46,21 @@ const GridPage = () => {
         </thead>
         <tbody>
           {data.map((d) => (
-            <GridRow data={d} key={d.date} allLocations={allUniqueLocations} />
+            <GridRow
+              data={d}
+              key={d.date}
+              allLocations={allUniqueLocations}
+              onTitleClick={handleTitleClick}
+              onModalClose={handleModalClose}
+            />
           ))}
         </tbody>
       </table>
+      <Modal
+        isOpen={isModalOpen}
+        onModalClose={handleModalClose}
+        modalEvent={modalEvent}
+      />
     </main>
   );
 };
