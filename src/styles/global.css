@@ -64,6 +64,7 @@ a {
   left: 0;
   background-color: rgba(49, 53, 60, 0.6);
   z-index: 2;
+	white-space: pre-line;
 }
 
 .parent-of-center {
