@@ -82,3 +82,28 @@ a {
   max-height: 80vh;
   overflow-y: scroll;
 }
+
+.DayFilters {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.DayFilters li {
+  display: inline-block;
+  color: #a9abaf;
+  border: 1px solid #ccc;
+  border-radius: 15px;
+  padding: 1px 5px;
+  cursor: pointer;
+  text-transform: capitalize;
+}
+
+.DayFilters li.applied-filter {
+  color: #ffffff;
+  background-color: #a9abaf;
+  border: 1px solid #a9abaf;
+}
+
+.DayFilters li:not(:first-child) {
+  margin-left: 0.5rem;
+}

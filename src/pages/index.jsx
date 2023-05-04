@@ -3,6 +3,7 @@ import Link from 'next/link';
 import scheduleData from '../data/schedule-2023.json';
 import ListRow from '../components/ListRow';
 import Modal from '../components/Modal';
+import DayFilters from '../components/DayFilters';
 import { groupByTime } from '../utility/group-by-time';
 
 const data = groupByTime(scheduleData);
@@ -10,6 +11,7 @@ const data = groupByTime(scheduleData);
 const IndexPage = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalEvent, setModalEvent] = useState(null);
+  const [dayFilters, setDayFilters] = useState([]);
 
   function handleTitleClick(event) {
     setModalEvent(event);
@@ -33,6 +35,7 @@ const IndexPage = () => {
       <p>
         <Link href="/grid">Grid View</Link>
       </p>
+      <DayFilters />
       <table>
         <thead>
           <tr>
