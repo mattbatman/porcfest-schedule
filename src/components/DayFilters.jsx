@@ -1,51 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useFilter } from '../contexts/filter.context';
 
 function DayFilters() {
-  const [dayFilters, setDayFilters] = useState([
-    {
-      day: 'monday',
-      isActive: false
-    },
-    {
-      day: 'tuesday',
-      isActive: false
-    },
-    {
-      day: 'wednesday',
-      isActive: false
-    },
-    {
-      day: 'thursday',
-      isActive: false
-    },
-    {
-      day: 'friday',
-      isActive: false
-    },
-    {
-      day: 'saturday',
-      isActive: false
-    },
-    {
-      day: 'sunday',
-      isActive: false
-    }
-  ]);
-
-  function toggleFilterActivity({ day, isActive }) {
-    setDayFilters(
-      dayFilters.map(function (d) {
-        if (day === d.day) {
-          return {
-            day,
-            isActive: !d.isActive
-          };
-        }
-
-        return d;
-      })
-    );
-  }
+  const { dayFilters, toggleFilterActivity } = useFilter();
 
   return (
     <ul className="DayFilters">
@@ -54,6 +11,7 @@ function DayFilters() {
           <li
             className={isActive ? 'applied-filter' : ''}
             onClick={() => toggleFilterActivity({ day, isActive })}
+            key={day}
           >
             {day}
           </li>
