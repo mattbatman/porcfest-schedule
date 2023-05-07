@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
-import { findIndex, uniq } from 'ramda';
+import { uniq } from 'ramda';
 import Link from 'next/link';
 import GridRow from '../components/GridRow';
 import Modal from '../components/Modal';
-import { groupByTime } from '../utility/group-by-time';
+import DayFilters from '../components/DayFilters';
+import { useFilteredEvents } from '../hooks/use-filtered-events';
 import scheduleData from '../data/schedule-2023.json';
-
-const data = groupByTime(scheduleData);
 
 const locations = scheduleData.map(({ location }) => location);
 const allUniqueLocations = uniq(locations);
@@ -14,6 +13,7 @@ const allUniqueLocations = uniq(locations);
 const GridPage = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalEvent, setModalEvent] = useState(null);
+  const { filteredEvents } = useFilteredEvents();
 
   function handleTitleClick(event) {
     setModalEvent(event);
@@ -35,6 +35,7 @@ const GridPage = () => {
       <p>
         <Link href="/">List View</Link>
       </p>
+      <DayFilters />
       <table>
         <thead>
           <tr>
@@ -45,7 +46,7 @@ const GridPage = () => {
           </tr>
         </thead>
         <tbody>
-          {data.map((d) => (
+          {filteredEvents.map((d) => (
             <GridRow
               data={d}
               key={d.date}
