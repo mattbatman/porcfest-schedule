@@ -1,45 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
-import scheduleData from '../data/schedule-2023.json';
 import ListRow from '../components/ListRow';
 import Modal from '../components/Modal';
 import DayFilters from '../components/DayFilters';
-import { useFilter } from '../contexts/filter.context';
-import { groupByTime } from '../utility/group-by-time';
-
-const data = groupByTime(scheduleData);
-
-function getShouldIncludeDay({ dayFilters, eventDate }) {
-  const dayOfWeekIndex = eventDate.getDay();
-  const { isActive } = dayFilters.find(function ({ ofWeek }) {
-    return ofWeek === dayOfWeekIndex;
-  });
-
-  return isActive;
-}
+import { useFilteredEvents } from '../hooks/use-filtered-events';
 
 const IndexPage = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalEvent, setModalEvent] = useState(null);
-  const [filteredEvents, setFilteredEvents] = useState(data);
-  const { dayFilters } = useFilter();
-
-  useEffect(() => {
-    const areNoFilters = dayFilters.every(function ({ isActive }) {
-      return !isActive;
-    });
-
-    if (areNoFilters) {
-      setFilteredEvents(data);
-      return;
-    }
-
-    const remainingDates = data.filter(function ({ date }) {
-      return getShouldIncludeDay({ eventDate: date, dayFilters });
-    });
-
-    setFilteredEvents(remainingDates);
-  }, [data, dayFilters]);
+  const { filteredEvents } = useFilteredEvents();
 
   function handleTitleClick(event) {
     setModalEvent(event);
