@@ -86,24 +86,27 @@ a {
 .DayFilters {
   list-style-type: none;
   padding-left: 0;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  margin-top: 1rem;
+  margin-bottom: 0;
+  max-width: 600px;
 }
 
 .DayFilters li {
-  display: inline-block;
   color: #a9abaf;
   border: 1px solid #ccc;
   border-radius: 15px;
-  padding: 1px 5px;
+  padding: 1px 7px;
   cursor: pointer;
   text-transform: capitalize;
+  font-size: 0.9rem;
+  margin-bottom: 0.6rem;
 }
 
 .DayFilters li.applied-filter {
   color: #ffffff;
   background-color: #a9abaf;
   border: 1px solid #a9abaf;
-}
-
-.DayFilters li:not(:first-child) {
-  margin-left: 0.5rem;
 }
