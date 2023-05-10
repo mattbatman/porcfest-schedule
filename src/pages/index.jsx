@@ -24,10 +24,8 @@ const IndexPage = () => {
       <title>PorcFest Schedule 2023</title>
       <h1>PorcFest Schedule 2023</h1>
       <p>
-        This is an attempt to replicate the events from the main{' '}
-        <a href="https://porcfest.com/schedule/">PorcFest schedule</a> by
-        downloading the `.ics` and rebuilding as a static website. It does not
-        sync in real time.
+        Last updated May 9, 2023. This site does not sync in real time with the
+        official <a href="https://porcfest.com/schedule/">PorcFest schedule</a>.
       </p>
       <p>
         <Link href="/grid">Grid View</Link>
