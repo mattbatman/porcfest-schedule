@@ -98,7 +98,7 @@ a {
   padding-left: 0;
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-between;
+  justify-content: start;
   margin-top: 1rem;
   margin-bottom: 0;
   max-width: 600px;
@@ -119,4 +119,10 @@ a {
   color: #ffffff;
   background-color: #a9abaf;
   border: 1px solid #a9abaf;
+}
+
+@media screen and (min-width: 600px) {
+  .DayFilters {
+    justify-content: space-between;
+  }
 }
