@@ -29,7 +29,7 @@ const GridPage = () => {
       <title>PorcFest Schedule 2023 | Grid</title>
       <h1>PorcFest Schedule 2023</h1>
       <p>
-        Last updated June 4, 2023. This site does not sync in real time with the
+        Last updated June 5, 2023. This site does not sync in real time with the
         official <a href="https://porcfest.com/schedule/">PorcFest schedule</a>.
       </p>
 
