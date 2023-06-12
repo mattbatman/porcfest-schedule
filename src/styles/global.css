@@ -132,8 +132,8 @@ a {
 }
 
 input.search-input {
-  color: #A9ABAF;
-  border: 1px solid #CCC;
+  color: #a9abaf;
+  border: 1px solid #ccc;
 }
 
 input.search-input {
@@ -145,5 +145,5 @@ input.search-input {
   -webkit-border-radius: 2px;
   -moz-border-radius: 2px;
   border-radius: 2px;
-  border: 1px solid #CCC;
+  border: 1px solid #ccc;
 }
