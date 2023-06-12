@@ -3,6 +3,7 @@ import Link from 'next/link';
 import ListRow from '../components/ListRow';
 import Modal from '../components/Modal';
 import DayFilters from '../components/DayFilters';
+import Search from '../components/Search';
 import { useFilteredEvents } from '../hooks/use-filtered-events';
 
 const IndexPage = () => {
@@ -31,6 +32,7 @@ const IndexPage = () => {
         <Link href="/grid">Grid View</Link>
       </p>
       <DayFilters />
+      <Search />
       <table>
         <thead>
           <tr>

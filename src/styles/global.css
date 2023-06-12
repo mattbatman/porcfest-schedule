@@ -126,3 +126,24 @@ a {
     justify-content: space-between;
   }
 }
+
+.Search {
+  margin-bottom: 1rem;
+}
+
+input.search-input {
+  color: #A9ABAF;
+  border: 1px solid #CCC;
+}
+
+input.search-input {
+  height: 20px;
+  width: 180px;
+  display: inline;
+  margin-bottom: -9px;
+  font-size: 13px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  border: 1px solid #CCC;
+}

@@ -40,6 +40,7 @@ function FilterProvider({ children }) {
       ofWeek: 0
     }
   ]);
+  const [search, setSearch] = useState('');
 
   function toggleFilterActivity({ day, isActive }) {
     setDayFilters(
@@ -59,7 +60,9 @@ function FilterProvider({ children }) {
 
   const value = {
     dayFilters,
-    toggleFilterActivity
+    toggleFilterActivity,
+    search,
+    setSearch
   };
 
   return (

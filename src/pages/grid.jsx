@@ -4,6 +4,7 @@ import Link from 'next/link';
 import GridRow from '../components/GridRow';
 import Modal from '../components/Modal';
 import DayFilters from '../components/DayFilters';
+import Search from '../components/Search';
 import { useFilteredEvents } from '../hooks/use-filtered-events';
 import scheduleData from '../data/schedule-2023.json';
 
@@ -37,6 +38,7 @@ const GridPage = () => {
         <Link href="/">List View</Link>
       </p>
       <DayFilters />
+      <Search />
       <table>
         <thead>
           <tr>
