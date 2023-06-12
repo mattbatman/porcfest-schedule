@@ -129,6 +129,7 @@ a {
 
 .Search {
   margin-bottom: 1rem;
+  max-width: 600px;
 }
 
 input.search-input {
@@ -137,8 +138,8 @@ input.search-input {
 }
 
 input.search-input {
-  height: 20px;
-  width: 180px;
+  height: 1.5rem;
+  width: 100%;
   display: inline;
   margin-bottom: -9px;
   font-size: 13px;
