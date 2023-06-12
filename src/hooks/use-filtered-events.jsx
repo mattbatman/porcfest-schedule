@@ -15,8 +15,6 @@ function useFilteredEvents() {
       return !isActive;
     });
 
-    console.log(data)
-
     const withMatchText = data.map(function (d) {
       const { events } = d;
 
