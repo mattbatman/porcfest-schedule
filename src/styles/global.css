@@ -134,17 +134,13 @@ a {
 
 input.search-input {
   color: #a9abaf;
-  border: 1px solid #ccc;
-}
-
-input.search-input {
   height: 1.5rem;
   width: 100%;
   display: inline;
   margin-bottom: -9px;
-  font-size: 13px;
-  -webkit-border-radius: 2px;
-  -moz-border-radius: 2px;
-  border-radius: 2px;
+  font-size: 1rem;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
   border: 1px solid #ccc;
 }
