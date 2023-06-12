@@ -7,7 +7,7 @@ function Search() {
   return (
     <div className="Search">
       <input
-        placeholder="filter"
+        placeholder="Search..."
         value={search}
         onChange={(e) => setSearch(e.target.value)}
         className="search-input"
