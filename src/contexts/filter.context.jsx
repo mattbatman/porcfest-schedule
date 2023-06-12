@@ -49,7 +49,7 @@ function FilterProvider({ children }) {
           return {
             ...d,
             day,
-            isActive: !d.isActive,
+            isActive: !d.isActive
           };
         }
 
