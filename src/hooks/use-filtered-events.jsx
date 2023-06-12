@@ -8,24 +8,46 @@ const data = groupByTime(scheduleData);
 
 function useFilteredEvents() {
   const [filteredEvents, setFilteredEvents] = useState(data);
-  const { dayFilters } = useFilter();
+  const { dayFilters, search } = useFilter();
 
   useEffect(() => {
     const areNoFilters = dayFilters.every(function ({ isActive }) {
       return !isActive;
     });
 
+    console.log(data)
+
+    const withMatchText = data.map(function (d) {
+      const { events } = d;
+
+      const matchingEvents = events.filter(function (event) {
+        const { description, location, summary } = event;
+        const matchText = `${location} ${summary} ${description}`.toLowerCase();
+        const regex = new RegExp(search.toLowerCase());
+
+        return regex.test(matchText)
+      });
+
+      return {
+        ...d,
+        events: matchingEvents
+      };
+    })
+      .filter(function ({ events }) {
+        return events.length > 0;
+      }) ;
+
     if (areNoFilters) {
-      setFilteredEvents(data);
+      setFilteredEvents(withMatchText);
       return;
     }
 
-    const remainingDates = data.filter(function ({ date }) {
+    const remainingDates = withMatchText.filter(function ({ date }) {
       return getShouldIncludeDay({ eventDate: date, dayFilters });
     });
 
     setFilteredEvents(remainingDates);
-  }, [data, dayFilters]);
+  }, [data, dayFilters, search]);
 
   return { filteredEvents };
 }
