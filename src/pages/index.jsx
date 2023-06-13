@@ -25,8 +25,14 @@ const IndexPage = () => {
       <title>PorcFest Schedule 2023</title>
       <h1>PorcFest Schedule 2023</h1>
       <p>
-        Last updated June 8, 2023. This site does not sync in real time with the
-        official <a href="https://porcfest.com/schedule/">PorcFest schedule</a>.
+        Last updated June 12, 2023. This site does not sync in real time with
+        the official{' '}
+        <a href="https://porcfest.com/schedule/">PorcFest schedule</a>. PorcFest
+        offers a Google Sheet of their schedule{' '}
+        <a href="https://docs.google.com/spreadsheets/d/1UuR36CxvXnDQ14NAk2plr9V_3jpKp4VQKYJVygAr0cA/edit#gid=0">
+          here
+        </a>
+        .
       </p>
       <p>
         <Link href="/grid">Grid View</Link>
