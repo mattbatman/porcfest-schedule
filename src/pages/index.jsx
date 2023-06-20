@@ -25,7 +25,7 @@ const IndexPage = () => {
       <title>PorcFest Schedule 2023</title>
       <h1>PorcFest Schedule 2023</h1>
       <p>
-        Last updated June 14, 2023. This site does not sync in real time with
+        Last updated June 20, 2023. This site does not sync in real time with
         the official{' '}
         <a href="https://porcfest.com/schedule/">PorcFest schedule</a>. PorcFest
         offers a Google Sheet of their schedule{' '}
